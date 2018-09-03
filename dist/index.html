@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vanilla JS Stopwatch</title>
+  </head>
+  <body>
+
+    <div class='app'>
+
+      <div class="timer">
+        <span id="minutes">0</span>:<span id="seconds">00</span>:<span id="milliseconds">000</span>
+      </div>
+
+      <div class="timer-buttons">
+        <button id="start-stop-button">Start</button>
+        <button id="split-reset-button" disabled=true>Split</button>
+      </div>
+
+      <div class="splits-list">
+        <ul id="splits">
+        </ul>
+      </div>
+
+    </div>
+
+    <script src="bundle.js"></script>
+  </body>
+</html>
