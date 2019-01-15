@@ -1,0 +1,47 @@
+html {
+  background: #171718;
+  font-family: "Heebo", sans-serif;
+  color: #f3f3f3;
+}
+
+.app {
+  min-height: 100vh;
+  position: relative;
+}
+.app .app-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 50vh;
+}
+.app .app-child .timer-container .timer {
+  font-family: "Major Mono Display", monospace;
+  font-size: 40px;
+  color: #f3f3f3;
+  font-weight: 400;
+}
+.app .app-child .timer-buttons {
+  margin: 60px auto 30px auto;
+  display: flex;
+  justify-content: center;
+}
+.app .app-child .timer-buttons .button-container {
+  width: 70px;
+}
+.app .app-child .timer-buttons .button-container button {
+  background: #9bfff1;
+  border: 1px solid black;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  font-size: 22px;
+  color: #171718;
+  outline: none;
+}
+.app .app-child .split-lists ul li {
+  margin: 10px auto;
+  text-align: center;
+}
+
+/*# sourceMappingURL=index.css.map */

@@ -122,7 +122,7 @@
   }
 
   function parsedMinutes(time) {
-    return getMinutes(time);
+    return pad(getMinutes(time), 2);
   }
 
   function getSeconds(time) {

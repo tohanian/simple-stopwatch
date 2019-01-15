@@ -2,28 +2,40 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vanilla JS Stopwatch</title>
+    <link href="https://fonts.googleapis.com/css?family=Heebo|Major+Mono+Display" rel="stylesheet">
   </head>
   <body>
 
-    <div class='app'>
+    <div class="app">
+      <div class="app-child">
 
-      <div class="timer">
-        <span id="minutes">0</span>:<span id="seconds">00</span>:<span id="milliseconds">000</span>
+        <div class="timer-container">
+          <div class="timer">
+            <span id="minutes">00</span>:<span id="seconds">00</span>:<span id="milliseconds">000</span>
+          </div>
+
+          <div class="timer-buttons">
+            <div class="button-container">
+              <button id="start-stop-button">Start</button>
+            </div>
+            <div class="button-container">
+              <button id="split-reset-button" disabled=true>Split</button>
+            </div>
+          </div>
+
+          <div class="splits-list">
+            <ul id="splits">
+            </ul>
+          </div>
+        </div>
+
       </div>
-
-      <div class="timer-buttons">
-        <button id="start-stop-button">Start</button>
-        <button id="split-reset-button" disabled=true>Split</button>
-      </div>
-
-      <div class="splits-list">
-        <ul id="splits">
-        </ul>
-      </div>
-
     </div>
 
+    <link rel="stylesheet" typ="text/css" href="reset.css"></style>
+    <link rel="stylesheet" type="text/css" href="index.css"></style>
     <script src="bundle.js"></script>
   </body>
 </html>
