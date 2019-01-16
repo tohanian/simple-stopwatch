@@ -49,6 +49,9 @@
   function handleSplit() {
     if (run) {
       splits.push(time);
+      if (splits.length > 15) {
+        splits.shift();
+      }
       renderSplits();
     } else {
       document.getElementById('split-reset-button').disabled = false;

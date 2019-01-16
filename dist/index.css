@@ -38,10 +38,31 @@ html {
   font-size: 22px;
   color: #171718;
   outline: none;
+  border-radius: 10px;
 }
-.app .app-child .split-lists ul li {
-  margin: 10px auto;
+.app .app-child .timer-buttons .button-container button:disabled {
+  opacity: 0.5;
+}
+.app .app-child .timer-buttons .button-container button:active {
+  background: #b5fff5;
+}
+.app .app-child .splits-list {
   text-align: center;
+}
+.app .app-child .splits-list h5 {
+  font-size: 85%;
+  color: #a6a6a6;
+  margin-bottom: 15px;
+}
+.app .app-child .splits-list ul {
+  height: 180px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.app .app-child .splits-list ul li {
+  margin: 8px auto;
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -40,15 +40,32 @@ html {
           font-size: 22px;
           color: #171718;
           outline: none;
+          border-radius: 10px;
+          &:disabled {
+            opacity: 0.5;
+          }
+          &:active {
+            background: lighten(#9bfff1, 5%);
+          }
         }
       }
     }
 
-    .split-lists {
+    .splits-list {
+      text-align: center;
+      h5 {
+        font-size: 85%;
+        color: #a6a6a6;
+        margin-bottom: 15px;
+      }
       ul {
+        height: 180px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
         li {
-          margin: 10px auto;
-          text-align: center;
+          margin: 8px auto;
         }
       }
     }
