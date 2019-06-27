@@ -6,10 +6,20 @@
   let stopTime = 0;
   let interval;
   let splits = [];
+  let progress = 0;
+  let canvasContext = null;
+  let radius = 0;
 
+  initialCanvasRender();
   attachEventListeners();
 
+  function initialCanvasRender() {
+    setCanvasDimensions();
+    renderAllProgressBars();
+  }
+
   function attachEventListeners() {
+    window.addEventListener('resize', setCanvasDimensions);
     document
       .getElementById('start-stop-button')
       .addEventListener('click', handleStartStop);
@@ -49,7 +59,7 @@
   function handleSplit() {
     if (run) {
       splits.push(time);
-      if (splits.length > 15) {
+      if (splits.length >= 7) {
         splits.shift();
       }
       renderSplits();
@@ -59,10 +69,20 @@
     }
   }
 
+  function setCanvasDimensions() {
+    const canvas = document.getElementById('progress-bar-canvas');
+    const container = document.getElementById('app-child');
+    canvas.width = container.offsetWidth;
+    canvas.height = container.offsetHeight;
+    radius =
+      Math.floor(Math.max(container.offsetWidth, container.offsetHeight)) / 10;
+  }
+
   // Render Functions
   function renderAll() {
     renderTime();
     renderSplits();
+    renderAllProgressBars();
   }
 
   function renderTime() {
@@ -86,6 +106,64 @@
     });
   }
 
+  function renderAllProgressBars() {
+    const canvas = document.getElementById('progress-bar-canvas');
+    canvasContext = canvas.getContext('2d');
+    canvasContext.clearRect(0, 0, 400, 200);
+    canvasContext.beginPath();
+    canvasContext.lineWidth = 5;
+
+    const canvasParams = {
+      start: 4.72,
+      cw: canvasContext.canvas.width / 2,
+      ch: canvasContext.canvas.height / 2,
+      radius,
+    };
+
+    renderProgressBarFill(canvasParams);
+    renderSecondProgressBar(canvasParams);
+    renderMinuteProgressBar(canvasParams);
+  }
+
+  function renderProgressBarFill(canvasParams) {
+    canvasContext.arc(
+      canvasParams.cw,
+      canvasParams.ch,
+      canvasParams.radius + canvasContext.lineWidth / 2,
+      0,
+      2 * Math.PI,
+      false
+    );
+    canvasContext.fillStyle = '#171718';
+    canvasContext.fill();
+    canvasContext.strokeStyle = '#000';
+    canvasContext.stroke();
+    canvasContext.fillStyle = '#000';
+  }
+
+  function renderSecondProgressBar(canvasParams) {
+    renderProgressBar(canvasParams, 60, '#54f04f', canvasParams.radius);
+  }
+
+  function renderMinuteProgressBar(canvasParams) {
+    renderProgressBar(
+      canvasParams,
+      3600,
+      '#ff66d4',
+      canvasParams.radius + canvasContext.lineWidth
+    );
+  }
+
+  function renderProgressBar(canvasParams, interval, color, radius) {
+    const { start, cw, ch } = canvasParams;
+    const progress = getProgress(interval);
+    const diff = (progress / 100) * Math.PI * 2;
+    canvasContext.strokeStyle = color;
+    canvasContext.beginPath();
+    canvasContext.arc(cw, ch, radius, start, diff + start, false);
+    canvasContext.stroke();
+  }
+
   // Helper functions
   function startTimer() {
     document.getElementById('start-stop-button').innerHTML = 'Stop';
@@ -103,6 +181,7 @@
     if (!reset) {
       time = stopTime + Date.now() - startTime;
       renderTime();
+      renderAllProgressBars();
     } else {
       time = 0;
       stopTime = 0;
@@ -148,5 +227,9 @@
     var s = num + '';
     while (s.length < size) s = '0' + s;
     return s;
+  }
+
+  function getProgress(interval) {
+    return ((time / 1000 / interval) * 100) % 100;
   }
 })();

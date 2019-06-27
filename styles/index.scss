@@ -7,30 +7,38 @@ html {
 }
 
 .app {
-  min-height: 100vh;
-  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   .app-child {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 50vh;
-
+    min-height: 100vh;
+    width: 100vw;
+    position: relative;
     .timer-container {
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      top: 50%;
+      margin: 0 auto;
       .timer {
         font-family: 'Major Mono Display', monospace;
         font-size: 40px;
         color: #f3f3f3;
         font-weight: 400;
+        text-align: center;
       }
     }
 
+    .progress-bar-container {
+      position: absolute;
+    }
+
     .timer-buttons {
-      margin: 60px auto 30px auto;
+      margin: 80px auto 30px auto;
       display: flex;
       justify-content: center;
       .button-container {
-        width: 70px;
+        margin: 16px;
         button {
           background: #9bfff1;
           border: 1px solid black;
@@ -40,9 +48,14 @@ html {
           font-size: 22px;
           color: #171718;
           outline: none;
-          border-radius: 10px;
+          border-radius: 16px;
+          padding: 10px 16px;
+          min-width: 100px;
           &:disabled {
             opacity: 0.5;
+          }
+          &:hover {
+            background: lighten(#9bfff1, 10%);
           }
           &:active {
             background: lighten(#9bfff1, 5%);
@@ -59,11 +72,13 @@ html {
         margin-bottom: 15px;
       }
       ul {
-        height: 180px;
+        height: 80px;
         overflow-y: auto;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
+        max-width: 600px;
+        margin: 0 auto;
         li {
           margin: 8px auto;
         }

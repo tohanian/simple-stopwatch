@@ -5,29 +5,39 @@ html {
 }
 
 .app {
-  min-height: 100vh;
-  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 .app .app-child {
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+.app .app-child .timer-container {
   position: absolute;
+  z-index: 1;
+  width: 100%;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 50vh;
+  margin: 0 auto;
 }
 .app .app-child .timer-container .timer {
   font-family: "Major Mono Display", monospace;
   font-size: 40px;
   color: #f3f3f3;
   font-weight: 400;
+  text-align: center;
+}
+.app .app-child .progress-bar-container {
+  position: absolute;
 }
 .app .app-child .timer-buttons {
-  margin: 60px auto 30px auto;
+  margin: 80px auto 30px auto;
   display: flex;
   justify-content: center;
 }
 .app .app-child .timer-buttons .button-container {
-  width: 70px;
+  margin: 16px;
 }
 .app .app-child .timer-buttons .button-container button {
   background: #9bfff1;
@@ -38,10 +48,15 @@ html {
   font-size: 22px;
   color: #171718;
   outline: none;
-  border-radius: 10px;
+  border-radius: 16px;
+  padding: 10px 16px;
+  min-width: 100px;
 }
 .app .app-child .timer-buttons .button-container button:disabled {
   opacity: 0.5;
+}
+.app .app-child .timer-buttons .button-container button:hover {
+  background: #cefff8;
 }
 .app .app-child .timer-buttons .button-container button:active {
   background: #b5fff5;
@@ -55,11 +70,13 @@ html {
   margin-bottom: 15px;
 }
 .app .app-child .splits-list ul {
-  height: 180px;
+  height: 80px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  max-width: 600px;
+  margin: 0 auto;
 }
 .app .app-child .splits-list ul li {
   margin: 8px auto;
