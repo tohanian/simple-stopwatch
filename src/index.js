@@ -75,7 +75,7 @@
     const container = document.getElementById('app-child');
     canvas.width = container.offsetWidth;
     canvas.height = container.offsetHeight;
-    radius = Math.min(container.offsetWidth - 50, container.offsetHeight - 50) / 2
+    radius = Math.min(container.offsetWidth - 60, container.offsetHeight - 60) / 2
     renderAllProgressBars();
   }
 

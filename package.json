@@ -9,7 +9,8 @@
   },
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
-    "styles": "sass ./styles/index.scss ./dist/index.css --watch"
+    "styles": "sass ./styles/index.scss ./dist/index.css --watch",
+    "build": "npx webpack"
   },
   "keywords": [],
   "author": "Toads",
