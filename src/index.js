@@ -1,5 +1,3 @@
-// TODO: fix radius on vis
-
 (() => {
   let run = false;
   let reset = false;
