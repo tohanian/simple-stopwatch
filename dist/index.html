@@ -10,14 +10,52 @@
     />
   </head>
   <body>
+    <div class="app-wrapper">
+      <div class="app-content">
+        <div class="main">
+            <div class="app-child" id="app-child">
+              <div class="timer-container">
+                <div class="timer">
+                  <span id="minutes">00</span>:<span id="seconds">00</span>:<span
+                    id="milliseconds"
+                    >000</span>
+                </div>
+      
+                <div class="timer-buttons">
+                  <div class="button-container">
+                    <button id="start-stop-button">Start</button>
+                  </div>
+                  <div class="button-container">
+                    <button id="split-reset-button" disabled="true">Split</button>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="progress-bar-container">
+                <canvas
+                  id="progress-bar-canvas"
+                  width="300px"
+                  height="300px"
+                ></canvas>
+              </div>
+            </div>
+          </div>
+        <div class="secondary">
+          <div class="splits-list">
+            <h5>Splits:</h5>
+            <ul id="splits"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+        
     <div class="app">
       <div class="app-child" id="app-child">
         <div class="timer-container">
           <div class="timer">
             <span id="minutes">00</span>:<span id="seconds">00</span>:<span
               id="milliseconds"
-              >000</span
-            >
+              >000</span>
           </div>
 
           <div class="timer-buttons">

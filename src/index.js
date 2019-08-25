@@ -1,3 +1,5 @@
+// TODO: fix radius on vis
+
 (() => {
   let run = false;
   let reset = false;
@@ -6,7 +8,6 @@
   let stopTime = 0;
   let interval;
   let splits = [];
-  let progress = 0;
   let canvasContext = null;
   let radius = 0;
 
@@ -59,7 +60,7 @@
   function handleSplit() {
     if (run) {
       splits.push(time);
-      if (splits.length >= 7) {
+      if (splits.length >= 20) {
         splits.shift();
       }
       renderSplits();
@@ -74,8 +75,8 @@
     const container = document.getElementById('app-child');
     canvas.width = container.offsetWidth;
     canvas.height = container.offsetHeight;
-    radius =
-      Math.floor(Math.max(container.offsetWidth, container.offsetHeight)) / 10;
+    radius = Math.min(container.offsetWidth - 50, container.offsetHeight - 50) / 2
+    renderAllProgressBars();
   }
 
   // Render Functions

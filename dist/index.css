@@ -1,85 +1,126 @@
-html {
+html, body {
   background: #171718;
   font-family: "Heebo", sans-serif;
   color: #f3f3f3;
-}
-
-.app {
-  width: 100vw;
-  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 }
-.app .app-child {
-  min-height: 100vh;
-  width: 100vw;
-  position: relative;
+
+.app-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
-.app .app-child .timer-container {
+.app-wrapper .app-content {
+  margin: 0 auto;
+  height: 90%;
+  width: 100%;
+}
+.app-wrapper .app-content .main {
+  margin: 0 auto;
+  height: 65%;
+}
+.app-wrapper .app-content .main .app-child {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.app-wrapper .app-content .main .app-child .progress-bar-container {
+  position: absolute;
+  top: 0;
+}
+.app-wrapper .app-content .main .app-child .timer-container {
   position: absolute;
   z-index: 1;
   width: 100%;
   top: 50%;
   margin: 0 auto;
 }
-.app .app-child .timer-container .timer {
+.app-wrapper .app-content .main .app-child .timer-container .timer {
   font-family: "Major Mono Display", monospace;
   font-size: 40px;
   color: #f3f3f3;
   font-weight: 400;
   text-align: center;
 }
-.app .app-child .progress-bar-container {
-  position: absolute;
-}
-.app .app-child .timer-buttons {
-  margin: 80px auto 30px auto;
+.app-wrapper .app-content .main .app-child .timer-container .timer-buttons {
   display: flex;
   justify-content: center;
+  margin-top: 10px;
 }
-.app .app-child .timer-buttons .button-container {
+.app-wrapper .app-content .main .app-child .timer-container .timer-buttons .button-container {
   margin: 16px;
 }
-.app .app-child .timer-buttons .button-container button {
+.app-wrapper .app-content .main .app-child .timer-container .timer-buttons .button-container button {
   background: #9bfff1;
   border: 1px solid black;
   text-align: center;
   margin: 0 auto;
   display: block;
-  font-size: 22px;
+  font-size: 16px;
   color: #171718;
   outline: none;
   border-radius: 16px;
   padding: 10px 16px;
   min-width: 100px;
+  text-transform: uppercase;
 }
-.app .app-child .timer-buttons .button-container button:disabled {
+.app-wrapper .app-content .main .app-child .timer-container .timer-buttons .button-container button:disabled {
   opacity: 0.5;
 }
-.app .app-child .timer-buttons .button-container button:hover {
+.app-wrapper .app-content .main .app-child .timer-container .timer-buttons .button-container button:hover {
   background: #cefff8;
 }
-.app .app-child .timer-buttons .button-container button:active {
-  background: #b5fff5;
+.app-wrapper .app-content .main .app-child .timer-container .timer-buttons .button-container button:active {
+  background: #4fffe6;
 }
-.app .app-child .splits-list {
+.app-wrapper .app-content .secondary {
+  height: 35%;
+}
+.app-wrapper .app-content .secondary .splits-list {
   text-align: center;
+  height: 100%;
 }
-.app .app-child .splits-list h5 {
+.app-wrapper .app-content .secondary .splits-list h5 {
   font-size: 85%;
   color: #a6a6a6;
   margin-bottom: 15px;
 }
-.app .app-child .splits-list ul {
-  height: 80px;
+.app-wrapper .app-content .secondary .splits-list ul {
+  height: 100%;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  max-width: 600px;
   margin: 0 auto;
+  font-size: 90%;
 }
-.app .app-child .splits-list ul li {
+.app-wrapper .app-content .secondary .splits-list ul li {
   margin: 8px auto;
+}
+
+@media screen and (orientation: landscape) {
+  .app-wrapper .app-content {
+    margin: 0 auto;
+    height: 90%;
+    display: flex;
+  }
+  .app-wrapper .app-content .main {
+    height: 100%;
+    width: 65%;
+  }
+  .app-wrapper .app-content .main .app-child .timer-container {
+    top: 30%;
+    margin: 0 auto;
+  }
+  .app-wrapper .app-content .secondary {
+    height: 100%;
+    width: 35%;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
